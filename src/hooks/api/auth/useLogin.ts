@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 interface LoginPayload {
-  email: string;
+  usernameOrEmail: string;
   password: string;
 }
 
@@ -25,7 +25,8 @@ const useLogin = () => {
       router.replace("/");
     },
     onError: (error: AxiosError<any>) => {
-      toast.error(error.response?.data);
+        console.log("ini error", error.response?.data);
+        toast.error(error.response?.data);
     },
   });
 };
