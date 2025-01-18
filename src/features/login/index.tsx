@@ -14,7 +14,7 @@ export default function LoginPage() {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      usernameOrEmail: "",
       password: "",
     },
     validationSchema: loginSchema,
@@ -29,18 +29,18 @@ export default function LoginPage() {
         <h1 className="text-center text-2xl font-bold mb-4">Instagram</h1>
         <form onSubmit={formik.handleSubmit} className="space-y-4">
           <Input
-            id="email"
-            name="email"
+            id="usernameOrEmail"
+            name="usernameOrEmail"
             type="text"
-            placeholder="Email"
-            value={formik.values.email}
+            placeholder="Username or Email"
+            value={formik.values.usernameOrEmail}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             required
             className="w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
           />
-          {formik.touched.email && formik.errors.email && (
-            <p className="text-xs text-red-500">{formik.errors.email}</p>
+          {formik.touched.usernameOrEmail && formik.errors.usernameOrEmail && (
+            <p className="text-xs text-red-500">{formik.errors.usernameOrEmail}</p>
           )}
 
           <div className="relative">
@@ -87,11 +87,16 @@ export default function LoginPage() {
         </Button>
 
         <p className="text-center text-sm mb-4">
-          <Link href="#" className="text-blue-500">Forgot password?</Link>
+          <Link href="#" className="text-blue-500">
+            Forgot password?
+          </Link>
         </p>
 
         <p className="text-center text-sm">
-          Don&apos;t have an account? <Link href="/register" className="text-blue-500">Sign up</Link>
+          Don&apos;t have an account?{" "}
+          <Link href="/register" className="text-blue-500">
+            Sign up
+          </Link>
         </p>
       </div>
     </main>
